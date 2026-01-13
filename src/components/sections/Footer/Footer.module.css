@@ -1,0 +1,43 @@
+.footer {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.link {
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  transition: color var(--transition-base);
+}
+
+.link:hover {
+  color: #666666;
+}
+
+.credit {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.credit:hover {
+  color: #666666;
+}
+
+@media (max-width: 768px) {
+  .content {
+    gap: 0.5rem;
+  }
+}

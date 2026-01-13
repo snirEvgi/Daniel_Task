@@ -1,0 +1,290 @@
+.process {
+  padding: var(--spacing-xxl) 0;
+  background-color: #000000;
+  min-height: 100vh;
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-xxl);
+}
+
+.intro {
+  font-family: 'Heebo', sans-serif;
+  font-size: clamp(1.04rem, 2.4vw, 1.44rem);
+  color: white;
+  margin-bottom: var(--spacing-md);
+  font-weight: 500;
+}
+
+.subtitle {
+  font-family: 'Heebo', sans-serif;
+  font-size: clamp(0.8rem, 1.6vw, 0.96rem);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 2;
+}
+
+.processTitleSection {
+  text-align: center;
+  margin-bottom: var(--spacing-xxl);
+}
+
+.arrowDown {
+  width: 2rem;
+  height: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 auto 2rem;
+  display: block;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.processTitle {
+  font-family: 'Heebo', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.timelineContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: var(--spacing-xxl) auto;
+  padding: var(--spacing-xl) 0;
+  /* Calculate min-height based on number of steps: 7 steps * 49vh = 343vh, plus some extra for smooth scrolling */
+  min-height: calc(7 * 40vh + 4vh);
+}
+
+.timelineBackground {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.timelineFill {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  background: white;
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: height 0.1s ease-out;
+  will-change: height;
+}
+
+.sentinelContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stepsWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  z-index: 2;
+}
+
+.stepWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Reduced by ~11% from 55vh to 49vh for tighter spacing while maintaining 2 blocks visible */
+  min-height: 38vh;
+  height: 38vh;
+}
+
+.stepCircleContainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.stepCircle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid #141414;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Heebo', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white;
+  transition: all 0.5s ease, opacity 0.7s ease;
+}
+
+.stepCircleInactive {
+  background: rgba(60, 52, 52, 0.8);
+  transform: scale(0.9);
+}
+
+.stepCircleActive {
+  background: rgba(60, 52, 52, 0.8);
+  transform: scale(1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.stepCircleCompleted {
+  background: rgba(60, 52, 52, 0.8);
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.stepCircle .checkmark {
+  width: 32px;
+  height: 32px;
+  color: white;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.stepBlock {
+  position: absolute;
+  transform: translateY(-50%);
+  width: 40%;
+  background-color:  #141414;
+  border: 1px solid #585757;
+  padding: 1.7rem 1.904rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 16px rgba(68, 67, 67, 0.3), 0 0 0 1px rgba(68, 67, 67, 0.3);
+  direction: rtl;
+  text-align: right;
+  /* Remove transition as Framer Motion handles animations */
+}
+
+.stepBlockLeft {
+  right: 65%;
+}
+
+.stepBlockRight {
+  left: 65%;
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stepTitle {
+  font-family: 'Heebo', sans-serif;
+  font-size: clamp(1.04rem, 1.76vw, 1.28rem);
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.4;
+}
+
+.stepDescription {
+  font-family: 'Heebo', sans-serif;
+  font-size: clamp(0.8rem, 1.28vw, 0.92rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.ctaWrapper {
+  text-align: center;
+  margin-top: var(--spacing-xxl);
+}
+
+@media (max-width: 1200px) {
+  .stepBlock {
+    width: 45%;
+    padding: 1.36rem;
+  }
+  
+  .stepBlockLeft {
+    right: 55%;
+  }
+  
+  .stepBlockRight {
+    left: 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  .process {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .timelineContainer {
+    padding: var(--spacing-lg) 0;
+    /* Calculate min-height for mobile: 7 steps * 45vh = 315vh, plus some extra */
+    min-height: calc(7 * 38vh + 4vh);
+  }
+
+  .timelineBackground {
+    left: 30px;
+  }
+
+  .timelineFill {
+    left: 30px;
+  }
+
+  .stepWrapper {
+    /* On mobile, reduced by ~10% from 50vh to 45vh for tighter spacing */
+    min-height: 38vh;
+    height: 38vh;
+  }
+
+  .stepCircleContainer {
+    left: 30px;
+  }
+
+  .stepCircle {
+    width: 40px;
+    height: 40px;
+    font-size: 0.96rem;
+  }
+
+  .stepCircle .checkmark {
+    width: 16px;
+    height: 16px;
+  }
+
+  .stepBlock {
+    width: calc(100% - 54px);
+    max-width: 100%;
+    left: 54px !important;
+    right: auto !important;
+    padding: 1.02rem;
+  }
+}

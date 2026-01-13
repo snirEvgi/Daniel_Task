@@ -1,0 +1,237 @@
+.projects {
+  background: linear-gradient(to bottom right,#1a1a1a 0%, #0f0f0f 100%);
+  padding: 5px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.title {
+  font-family: 'Heebo', sans-serif;
+
+  font-size: clamp(2rem, 5vw, 3rem);
+  color:white;
+  margin-top: 7rem;
+  margin-bottom: 1rem;
+  font-weight:lighter ;
+}
+
+.subtitle {
+  font-family: 'Heebo', sans-serif;
+
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: white;
+  margin-bottom: 6rem;
+  font-weight:lighter ;
+
+}
+
+.projectsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.projectCard {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  flex: 0 0 auto;
+  max-width: 360px;
+  width: 100%;
+}
+
+.projectCard:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 60%; /* Reduced height by ~20% (from 75% to 60%) */
+  overflow: hidden;
+}
+
+.projectImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.025);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.projectCard:hover .overlay {
+  opacity: 1;
+}
+
+.projectInfo {
+  color: white;
+text-align: center;
+font-family: 'Heebo', sans-serif;
+}
+
+.projectTitle {
+  font-family: 'Heebo', sans-serif;
+  font-size: 18px;
+  margin-bottom: var(--spacing-xs);
+  color: white;
+  text-align: center;
+  font-weight:lighter ;
+}
+
+.category {
+  font-family: 'Heebo', sans-serif;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-weight:lighter ;
+}
+
+
+.projectDetail {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+}
+
+.detailContent {
+  background: white;
+  border-radius: var(--radius-xl);
+  max-width: 1000px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+
+
+.closeButton:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: rotate(90deg);
+}
+
+.detailImageWrapper {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.detailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detailInfo {
+  padding: var(--spacing-xl);
+}
+
+.detailCategory {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--bg-light);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: var(--spacing-md);
+}
+
+.detailTitle {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.detailDescription {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: var(--text-light);
+  line-height: 2;
+  margin-bottom: var(--spacing-xl);
+}
+
+.detailSpecs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: var(--bg-light);
+  border-radius: var(--radius-md);
+}
+
+.specItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  text-align: center;
+}
+
+.specLabel {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.specValue {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .projectsGrid {
+    flex-direction: column;
+  }
+  
+  .projectCard {
+    max-width: 100%;
+  }
+
+
+  .detailSpecs {
+    grid-template-columns: 1fr;
+  }
+
+  .detailImageWrapper {
+    height: 250px;
+  }
+
+  .detailInfo {
+    padding: var(--spacing-lg);
+  }
+}

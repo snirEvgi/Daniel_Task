@@ -1,0 +1,178 @@
+.projectDetailView {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.detailBackground {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  scale: 1.11;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  filter: brightness(1) contrast(1.2) saturate(1.1);
+  -webkit-filter: brightness(1) contrast(1.2) saturate(1.1);
+}
+
+.detailBackground::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(73, 69, 69, 0.039);
+  z-index: 0;
+}
+.viewGalleryButton {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: 'Heebo', sans-serif;
+  border-radius: 15px !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-width: 1px !important;
+  transition: all 0.3s ease !important;
+  color: rgba(227, 215, 215, 0.623) !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  background-image: none !important;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.viewGalleryButton:hover {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  background-image: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  border-width: 1px !important;
+  color: white !important;
+  box-shadow: none !important;
+  transform: translateY(-5px) scale(1.02);
+}
+
+.detailOverlay {
+  position: relative;
+  z-index: 1;
+  width: 30rem;
+  max-width: 650px;
+  min-height: auto;
+  margin-left: auto;
+  margin-right: 5%;
+  margin-top: 8.2%;
+  margin-bottom: 5%;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.174);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  padding: 3.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.overlayContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: white;
+  direction: rtl;
+}
+
+.overlayCategory {
+  font-family: 'Heebo', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+}
+
+.overlayTitle {
+  font-family: 'Allura', cursive;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: white;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.overlayDescription {
+  font-family: 'Heebo', sans-serif;
+  font-size: 1rem;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.overlaySpecs {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  justify-content: flex-start;
+}
+
+.overlaySpecItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.overlaySpecLabel {
+  font-family: 'Heebo', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.overlaySpecValue {
+  font-family: 'Heebo', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .detailOverlay {
+    width: 90%;
+    max-width: none;
+    margin: 0 auto;
+    border-radius: 24px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem 1.5rem;
+    min-height: auto;
+  }
+
+  .viewGalleryButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .projectDetailView {
+    min-height: 80vh;
+  }
+
+  .detailBackground {
+    min-height: 80vh;
+  }
+}

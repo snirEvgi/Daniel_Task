@@ -1,0 +1,125 @@
+.whyChooseUs {
+  padding: var(--spacing-xxl) 0;
+  background-color:#141414;
+ 
+
+}
+
+.questionSection {
+  text-align: center;
+  margin-bottom: var(--spacing-xxl);
+}
+
+.question {
+  font-family: 'Heebo', sans-serif;
+  font-size: clamp(2.2rem, 3.5vw, 2.8rem);
+  color: white;
+  font-weight: 700;
+}
+
+.benefitsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xxl);
+  padding: 3rem;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: start;
+  gap: 4rem;
+  max-width: 1024px;
+  margin: 0 auto 5rem;
+  direction: rtl;
+}
+
+.benefitItem.leftIcon {
+  flex-direction: row;
+}
+
+.benefitItem.rightIcon {
+  flex-direction: row-reverse;
+}
+
+.iconWrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.contentWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  direction: rtl;
+}
+
+.title {
+  font-family: 'Heebo', sans-serif;
+  font-size: clamp(20px, 2vw, 29px);
+  font-weight: thin;
+  color: white;
+  margin: 0;
+  line-height: 1.1;
+  text-align: center;
+  
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 460px;
+  
+}
+
+.description p {
+  font-family: 'Heebo', sans-serif;
+  font-size:20px;
+  font-weight:thin;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.9;
+  margin: 0;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: keep-all;
+  hyphens: auto;
+}
+
+.closing {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.closing p {
+  font-family: 'Heebo', sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: white;
+  line-height: 1.8;
+  margin-bottom: var(--spacing-xl);
+}
+
+.ctaWrapper {
+  margin-top: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+  .benefitItem {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-md);
+  }
+
+ 
+  .title,
+  .description p {
+    text-align: center;
+  }
+}
