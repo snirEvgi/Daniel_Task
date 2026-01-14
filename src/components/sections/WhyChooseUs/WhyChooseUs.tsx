@@ -13,11 +13,10 @@ interface BenefitItemProps {
   index: number
   iconStyle: React.CSSProperties
   itemVariants: any
-  iconVariants: any
   textVariants: any
 }
 
-const BenefitItem = ({ benefit, index, iconStyle, itemVariants, iconVariants, textVariants }: BenefitItemProps) => {
+const BenefitItem = ({ benefit, index, iconStyle, itemVariants, textVariants }: BenefitItemProps) => {
   const [itemRef, itemInView] = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -131,15 +130,6 @@ const WhyChooseUs = () => {
     },
   }
 
-  const iconVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5 },
-    },
-  }
-
   const textVariants = {
     hidden: { opacity: 0, x: 50 }, // Start from right (positive x in RTL)
     visible: {
@@ -194,7 +184,6 @@ const WhyChooseUs = () => {
                 index={index}
                 iconStyle={iconStyle}
                 itemVariants={itemVariants}
-                iconVariants={iconVariants}
                 textVariants={textVariants}
               />
             ))}
