@@ -1,51 +1,93 @@
 .loader {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: var(--bg-color);
+  inset: 0;
+  background: radial-gradient(circle at center, #050505, #000);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  overflow: hidden;
+  direction: ltr;
 }
 
-.logo {
-  margin-bottom: 2rem;
+/* Background lines – softer + glowing */
+.backgroundPattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.05) 1px,
+    transparent 1px,
+    transparent 22px
+  );
+  animation: drift 6s linear infinite;
 }
 
-.logo h1 {
-  font-family: var(--font-heading);
-  font-size: 3rem;
-  color: var(--primary-color);
-  text-align: center;
+@keyframes drift {
+  from { background-position-x: 0; }
+  to { background-position-x: 200px; }
 }
 
-.spinner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.spinnerCircle {
-  width: 50px;
-  height: 50px;
-  border: 4px solid var(--border-color);
-  border-top-color: var(--primary-color);
+/* Outer glow halo */
+.voidGlow {
+  position: absolute;
+  width: 360px;
+  height: 360px;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  background: radial-gradient(
+    circle,
+    rgba(200, 233, 233, 0.26),
+    rgba(251, 248, 255, 0.858),
+    transparent 70%
+  );
+  filter: blur(25px);
+  animation: pulseGlow 2.5s ease-in-out infinite;
+  z-index: 0;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(0.95); opacity: 0.6; }
+  50% { transform: scale(1.05); opacity: 1; }
 }
 
-@media (max-width: 768px) {
-  .logo h1 {
-    font-size: 2rem;
-  }
+/* Core void */
+.circularVoid {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #000 30%,
+    rgba(0,0,0,0.9) 60%,
+    transparent 100%
+  );
+  box-shadow:
+    inset 0 0 40px rgba(0,255,255,0.2),
+    0 0 60px rgba(120,0,255,0.35);
+  z-index: 1;
+}
+
+/* Text */
+.textContainer {
+  position: relative;
+  z-index: 2;
+}
+
+.loadingText {
+  font-family: 'Heebo', sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  text-shadow:
+    0 0 10px rgba(0,255,255,0.6),
+    0 0 20px rgba(120,0,255,0.4),
+    0 0 40px rgba(120,0,255,0.3);
+  display: flex;
+}
+
+.letter {
+  display: inline-block;
 }

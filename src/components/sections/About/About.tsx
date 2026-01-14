@@ -8,9 +8,18 @@ import styles from './About.module.css'
 const About = () => {
   const { ref, controls } = useScrollAnimation()
   const { ref: headerRef, controls: headerControls } = useScrollAnimation()
-  const { count: yearsCount, ref: yearsRef } = useCounter({ end: 18, duration: 2000 })
-  const { count: projectsCount, ref: projectsRef } = useCounter({ end: 300, duration: 2000 })
-  const { count: clientsCount, ref: clientsRef } = useCounter({ end: 200, duration: 2000 })
+  const { count: yearsCount, ref: yearsRef } = useCounter({ end: 18, duration: 2000, threshold: 0.3 })
+  const { count: projectsCount, ref: projectsRef } = useCounter({ end: 300, duration: 2000, threshold: 0.3 })
+  const { count: clientsCount, ref: clientsRef } = useCounter({ end: 200, duration: 2000, threshold: 0.3 })
+  
+  // Combine all refs to trigger counters when stats container comes into view
+  const setStatsRefs = (element: HTMLDivElement | null) => {
+    if (element) {
+      clientsRef(element)
+      projectsRef(element)
+      yearsRef(element)
+    }
+  }
   
   const headerText = 'כמה מילים מאלה שסיימו את התהליך'
   const letters = headerText.split('')
@@ -66,16 +75,16 @@ const About = () => {
                 className={styles.profileImage}
               />
             </div>
-            <div className={styles.stats}>
-              <div className={styles.statItem} ref={clientsRef}>
+            <div className={styles.stats} ref={setStatsRefs}>
+              <div className={styles.statItem}>
                 <span className={styles.statNumber}>+{clientsCount}</span>
                 <span className={styles.statLabel}>לקוחות מרוצים</span>
               </div>
-              <div className={styles.statItem} ref={projectsRef}>
+              <div className={styles.statItem}>
                 <span className={styles.statNumber}>+{projectsCount}</span>
                 <span className={styles.statLabel}>פרויקטים</span>
               </div>
-              <div className={styles.statItem} ref={yearsRef}>
+              <div className={styles.statItem}>
                 <span className={styles.statNumber}>{yearsCount}</span>
                 <span className={styles.statLabel}>שנות ניסיון</span>
               </div>

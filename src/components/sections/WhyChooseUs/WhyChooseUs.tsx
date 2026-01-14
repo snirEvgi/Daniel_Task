@@ -37,6 +37,7 @@ const BenefitItem = ({ benefit, index, iconStyle, itemVariants, textVariants }: 
           delay={2 * 1200}
           colors="primary:#ffffff,secondary:#ffffff"
           style={iconStyle}
+          className={styles.icon}
         />
       </div>
       <motion.div 

@@ -11,9 +11,9 @@
 
 .modal {
   position: fixed;
-  top: 50%;
-  right: 5%;
-  transform: translateY(-50%);
+  top:10%;
+  left:37%;
+  transform: translate(-50%, -50%);
   width: 90%;
   max-width: 500px;
   background: #2a2a2a;
@@ -163,11 +163,15 @@
 
 @media (max-width: 768px) {
   .modal {
-    right: 50%;
-    transform: translate(50%, -50%);
-    width: 95%;
+    top:10%;
+    right:3.5%;
+    transform: translate(-50%, -50%);
+   
+    width: calc(100% - 2rem);
     max-width: none;
     padding: 2rem 1.5rem;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
   }
 
   .buttonGroup {

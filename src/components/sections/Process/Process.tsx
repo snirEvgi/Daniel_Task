@@ -292,29 +292,34 @@ const Process = () => {
                   </div>
 
                   {/* Content Card with Slide Animation */}
-                  <AnimatePresence>
+                  <AnimatePresence mode="wait">
                     {shouldShow && (
                       <motion.div
                         key={`step-card-${index}`}
                         className={`${styles.stepBlock} ${step.side === 'left' ? styles.stepBlockLeft : styles.stepBlockRight}`}
                         initial={{ 
                           opacity: 0, 
-                          x: step.side === 'left' ? -100 : 100 
+                          x: step.side === 'left' ? -50 : 50,
+                          scale: 0.95
                         }}
                         animate={{ 
                           opacity: stepOpacity, 
-                          x: 0 
+                          x: 0,
+                          scale: 1
                         }}
                         exit={{ 
                           opacity: 0, 
-                          x: step.side === 'left' ? -100 : 100 
+                          x: step.side === 'left' ? -50 : 50,
+                          scale: 0.95
                         }}
                         transition={{ 
-                          duration: 0.6, 
-                          ease: [0.4, 0, 0.2, 1] 
+                          duration: 0.5, 
+                          ease: [0.4, 0, 0.2, 1],
+                          opacity: { duration: 0.4 }
                         }}
                         style={{
-                          pointerEvents: stepOpacity === 0 ? 'none' : 'auto'
+                          pointerEvents: stepOpacity === 0 ? 'none' : 'auto',
+                          willChange: 'transform, opacity'
                         }}
                       >
                         <div className={styles.stepContent}>

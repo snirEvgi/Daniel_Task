@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import Loader from './components/common/Loader/Loader'
 import Hero from './components/sections/Hero/Hero'
 import Introduction from './components/sections/Introduction/Introduction'
@@ -30,31 +31,34 @@ function App() {
     return () => clearTimeout(timer)
   }, [])
 
-  if (isLoading) {
-    return <Loader />
-  }
-
   return (
-    <div className="app">
-      <Hero />
-      <div >
-        <Introduction />
-      </div>
-      <div >
-        <About />
-      </div>
-      <div  >
-        <WhyChooseUs />
-      </div>
-      <div>
-        <Projects />
-      </div>
-      <Process />
-      <div >
-        <FAQ />
-      </div>
-      <Footer />
-    </div>
+    <>
+      <AnimatePresence mode="wait">
+        {isLoading && <Loader key="loader" />}
+      </AnimatePresence>
+      {!isLoading && (
+        <div className="app">
+          <Hero />
+          <div >
+            <Introduction />
+          </div>
+          <div >
+            <About />
+          </div>
+          <div  >
+            <WhyChooseUs />
+          </div>
+          <div>
+            <Projects />
+          </div>
+          <Process />
+          <div >
+            <FAQ />
+          </div>
+          <Footer />
+        </div>
+      )}
+    </>
   )
 }
 

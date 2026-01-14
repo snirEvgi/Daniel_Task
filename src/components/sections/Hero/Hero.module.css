@@ -305,4 +305,16 @@
   .indicator.active {
     width: 50px;
   }
+  .contactButtonWrapper {
+    position: absolute;
+    bottom: 5.1%;
+    left: 4.5%  ;
+    z-index: 3; 
+  }
+  .projectsButtonWrapper {
+    position: absolute;
+    bottom: 5.1%;
+    right: 4.5%  ;
+    z-index: 3; 
+  }
 }
