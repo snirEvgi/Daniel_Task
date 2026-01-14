@@ -221,13 +221,31 @@
     padding: 1rem;
   }
 
+  .galleryContainer {
+    margin-top: 60px;
+    gap: 1.2rem;
+  }
+
   .mainImageContainer {
     height: 50vh;
+    margin-bottom: 0.6rem;
+  }
+
+  .mainImage {
+    scale: 0.95;
+  }
+
+  .thumbnailContainer {
+    top: 65%;
+    transform: translateX(-50%) scale(0.75);
+    padding: 0.7rem 1rem;
+    gap: 0.6rem;
+    max-width: 90%;
   }
 
   .thumbnail {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
   }
 
   .closeButton,
@@ -236,8 +254,30 @@
     height: 40px;
   }
 
+  .closeButton {
+    top: 15px;
+    right: 15px;
+  }
+
+  .navButton {
+    width: 38px;
+    height: 38px;
+  }
+
+  .navButton svg {
+    width: 20px;
+    height: 20px;
+  }
+
   .imageCounter {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.7rem;
+    bottom: 15px;
+    left: 15px;
+  }
+
+  .contactButtonContainer {
+    margin-top: 0.6rem;
+    bottom: 15px;
   }
 }
