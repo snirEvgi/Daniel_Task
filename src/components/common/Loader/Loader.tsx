@@ -7,9 +7,7 @@ const Loader = () => {
   const letters = loadingText.split('')
   const [showFullOpacity, setShowFullOpacity] = useState(false)
 
-  const totalAnimationDuration =
-    0.4 + (letters.length - 1) * 0.15 + 0.4
-
+ 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
